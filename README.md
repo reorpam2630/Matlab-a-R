@@ -414,3 +414,83 @@ toc
 ![Imagen4](https://user-images.githubusercontent.com/119010566/203870721-bf787355-d0c5-4544-bfa9-562620a4b85e.jpg)
 
 
+#######CODIGO EN R#######
+
+#Archivo[registro6.xlsx](https://github.com/reorpam2630/Matlab-a-R/files/10087615/registro6.xlsx)
+
+
+##Periodograma
+4
+#cargar librerías  
+5
+library(TSA)
+6
+library (readxl) 
+7
+#Cargar los datos
+8
+data <- read_excel ("C:/Users/hp/Desktop/R/registro6.xlsx")
+9
+​
+10
+p = periodogram (data$ERG)
+11
+dd = data.frame(freq=p$freq, spec=p$spec)
+12
+order = dd[order(-dd$spec),]
+13
+top2 = head(order, 2)
+14
+top2
+15
+###Resultado
+16
+​![Imagen5](https://user-images.githubusercontent.com/119010566/203872145-2251f99d-6120-4de1-bd14-af3b621d5fa2.jpg)
+
+17
+###Espectrograma
+18
+library(phonTools)
+19
+spectrogram(data$ERG)
+20
+​
+21![Imagen8](https://user-images.githubusercontent.com/119010566/203872178-625c3827-94b5-4ad8-822c-c3dab4a5f6bd.jpg)
+
+​
+22
+###Análisis de coherencia
+###archivo [registro8.xlsx](https://github.com/reorpam2630/Matlab-a-R/files/10087619/registro8.xlsx)
+
+
+23
+data <- read_excel ("C:/Users/hp/Desktop/R/registro8.xlsx")
+24
+library(seewave)
+25
+wave1 = data$ERG
+26
+wave2 = data$Respiracion
+27
+f = 2000
+28
+coh(wave1, wave2, f, channel=c(1,2), plot =TRUE, xlab = "Frequency (kHz)", ylab = "Coherence", xlim = c(0,f/2000), type = "l")
+29
+​![Imagen6](https://user-images.githubusercontent.com/119010566/203872196-4c0e591b-7c89-48d1-a291-7c3ac8b3a75f.jpg)
+
+30
+###Análisis de coherencia wavelet
+31
+library (biwavelet)
+32
+t1 = cbind(data$Time, data$ERG)
+33
+t2 = cbind(data$Time, data$Respiracion)
+34
+nrands = 10
+35
+wtc.AB = wtc(t1, t2, nrands = nrands)
+36
+​![Imagen7](https://user-images.githubusercontent.com/119010566/203872218-8696c99f-eb9a-4488-9323-90bba6d99741.jpg)
+
+
