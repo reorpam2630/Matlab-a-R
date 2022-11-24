@@ -97,6 +97,11 @@ return
 %addpath 'C:\Users\hp\AppData\Roaming\MathWorks\MATLAB Add-Ons\Collections\FieldTrip'
 %ft_defaults
 
+
+
+
+
+
 ##Resultado
 ![Imagen1](https://user-images.githubusercontent.com/119010566/203870385-cac15357-8703-4b43-87a4-f11792aa4746.jpg)
 
@@ -135,6 +140,9 @@ return
 %restoredefaultpath
 %addpath 'C:\Users\hp\AppData\Roaming\MathWorks\MATLAB Add-Ons\Collections\FieldTrip'
 %ft_defaults
+
+
+
 ####Resultado
 ![Imagen2](https://user-images.githubusercontent.com/119010566/203870544-e8113db2-496f-4774-8ea4-26cb9cdc5d3c.jpg)
 
@@ -397,6 +405,10 @@ tic
 [promedioEscalogrma1,promedioEscalogrma2,TiempoEscalograma,escalograma1,escalograma2,frecuencias,senfilt,tiempo] ...
     =FFTyWaveletParaChoherencias2canalesPamela(1,10,1,10,'FieldRaton1CambiosdeLuzCada2minOIIniciaEsco.mat',{'1','2'},[0 20]);
 toc
+
+
+
+
 ####Resultado
 ![Imagen3](https://user-images.githubusercontent.com/119010566/203870718-59b4486d-7df2-44c1-9ca2-e91defe45db7.jpg)
 ![Imagen4](https://user-images.githubusercontent.com/119010566/203870721-bf787355-d0c5-4544-bfa9-562620a4b85e.jpg)
