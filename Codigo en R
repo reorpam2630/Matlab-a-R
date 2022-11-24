@@ -12,3 +12,26 @@ dd = data.frame(freq=p$freq, spec=p$spec)
 order = dd[order(-dd$spec),]
 top2 = head(order, 2)
 top2
+###Resultado
+
+###Espectrograma
+library(phonTools)
+spectrogram(data$ERG)
+
+
+###Análisis de coherencia
+data <- read_excel ("C:/Users/hp/Desktop/R/registro8.xlsx")
+library(seewave)
+wave1 = data$ERG
+wave2 = data$Respiracion
+f = 2000
+coh(wave1, wave2, f, channel=c(1,2), plot =TRUE, xlab = "Frequency (kHz)", ylab = "Coherence", xlim = c(0,f/2000), type = "l")
+
+###Análisis de coherencia wavelet
+library (biwavelet)
+t1 = cbind(data$Time, data$ERG)
+t2 = cbind(data$Time, data$Respiracion)
+nrands = 10
+wtc.AB = wtc(t1, t2, nrands = nrands)
+
+
