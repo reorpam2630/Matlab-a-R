@@ -1,0 +1,14 @@
+
+
+##Periodograma
+#cargar librerías  
+library(TSA)
+library (readxl) 
+#Cargar los datos
+data <- read_excel ("C:/Users/hp/Desktop/R/registro6.xlsx")
+
+p = periodogram (data$ERG)
+dd = data.frame(freq=p$freq, spec=p$spec)
+order = dd[order(-dd$spec),]
+top2 = head(order, 2)
+top2
